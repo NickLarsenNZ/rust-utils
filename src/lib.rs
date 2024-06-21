@@ -1,5 +1,11 @@
 pub mod errors;
 
+/// A generalisation of [std::result::Result] which removes the positive and
+/// negative connotations of the variants.
+///
+/// It is purposfully not annotated with `#[must_use]` so that the caller can
+/// throw away the return value without `let _ =`.
+/// It is also not annotated with `#[non_exhaustive]` to remain similar to [`Result`]
 pub enum Maybe<A, B> {
     A(A),
     B(B),
