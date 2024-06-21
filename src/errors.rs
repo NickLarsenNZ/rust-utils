@@ -10,6 +10,9 @@ impl<T, E> OnError<T, E> for Result<T, E> {
     /// This is useful when you don't need the `[Result::Ok]` value, and gets
     /// around the `#[must_use]` requirement that generally leads to throwing
     /// away the result with `let _ =`.
+    ///
+    /// For example, when running code in a [`Drop`] implementation where you
+    /// cannot return a [`Result`], but might want to log the error.
     fn on_error<F, O: FnOnce(E) -> F>(self, op: O) -> Maybe<T, F> {
         match self {
             Ok(t) => Maybe::A(t),
