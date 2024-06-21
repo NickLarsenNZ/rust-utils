@@ -1,3 +1,5 @@
+pub mod errors;
+
 pub enum Maybe<A, B> {
     A(A),
     B(B),

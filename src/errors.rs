@@ -1,15 +1,30 @@
 use crate::Maybe;
 
-
-pub trait OnError<A, B> {
-    fn on_error(&self, f: FnOnce(error: B)) -> Maybe<A, B>;
+pub trait OnError<T, E> {
+    fn on_error<F, O: FnOnce(E) -> F>(self, op: O) -> Maybe<T, F>;
 }
 
-impl<A, B> OnError<A, B> for Result<A, B> {
-    fn on_error(&self, f: FnOnce(error: B) -> Maybe<A, B> {
-        if let Err(error) {
-            f(error)
+impl<T, E> OnError<T, E> for Result<T, E> {
+    fn on_error<F, O: FnOnce(E) -> F>(self, op: O) -> Maybe<T, F> {
+        match self {
+            Ok(t) => Maybe::A(t),
+            Err(e) => Maybe::B(op(e)),
         }
-        self.into() // todo: impl From for Maybe
+    }
+}
+
+#[cfg(test)]
+mod test {
+    use super::*;
+
+    #[test]
+    fn result_on_error() {
+        let error_value = 1u8;
+        let result: Result<String, u8> = Result::Err(error_value);
+
+        let mut indicator = u8::default();
+        result.on_error(|e| indicator = e);
+
+        assert_eq!(indicator, error_value);
     }
 }
