@@ -1,4 +1,6 @@
+#[cfg(feature = "errors")]
 pub mod errors;
+#[cfg(feature = "format")]
 pub mod format;
 
 /// A generalisation of [std::result::Result] which removes the positive and
