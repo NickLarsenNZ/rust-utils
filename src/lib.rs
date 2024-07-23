@@ -1,4 +1,5 @@
 pub mod errors;
+pub mod format;
 
 /// A generalisation of [std::result::Result] which removes the positive and
 /// negative connotations of the variants.
