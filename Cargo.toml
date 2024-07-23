@@ -9,3 +9,6 @@ errors = []
 format = []
 
 [dependencies]
+
+[dev-dependencies]
+derive_more = "0.99.18"
