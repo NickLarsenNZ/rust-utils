@@ -4,11 +4,13 @@ version = "0.1.0"
 edition = "2021"
 
 [features]
-default = ["format", "errors"]
+default = ["format", "errors", "hyperlink"]
 errors = []
 format = []
+hyperlink = ["dep:url"] # maybe make a wrapping feature for terminal specific stuff
 
 [dependencies]
+url = { version = "2.5.2", optional = true }
 
 [dev-dependencies]
 derive_more = "0.99.18"

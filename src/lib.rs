@@ -2,6 +2,8 @@
 pub mod errors;
 #[cfg(feature = "format")]
 pub mod format;
+#[cfg(feature = "hyperlink")]
+pub mod hyperlink;
 
 /// A generalisation of [std::result::Result] which removes the positive and
 /// negative connotations of the variants.
