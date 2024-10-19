@@ -1,3 +1,5 @@
+#[cfg(feature = "concurrent_logs")]
+pub mod concurrent_logs;
 #[cfg(feature = "errors")]
 pub mod errors;
 #[cfg(feature = "format")]
