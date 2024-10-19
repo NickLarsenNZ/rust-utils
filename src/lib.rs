@@ -1,3 +1,5 @@
+#[cfg(feature = "concurrency_limit")]
+pub mod concurrency_limit;
 #[cfg(feature = "errors")]
 pub mod errors;
 #[cfg(feature = "format")]

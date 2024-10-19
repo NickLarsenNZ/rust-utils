@@ -8,6 +8,7 @@ default = ["format", "errors", "hyperlink"]
 errors = []
 format = []
 hyperlink = ["dep:url"] # maybe make a wrapping feature for terminal specific stuff
+concurrency_limit = []
 
 [dependencies]
 url = { version = "2.5.2", optional = true }
