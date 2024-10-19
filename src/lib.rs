@@ -5,6 +5,9 @@ pub mod format;
 #[cfg(feature = "hyperlink")]
 pub mod hyperlink;
 
+#[cfg(feature = "github_output")]
+pub mod github_output;
+
 /// A generalisation of [std::result::Result] which removes the positive and
 /// negative connotations of the variants.
 ///

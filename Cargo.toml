@@ -4,10 +4,11 @@ version = "0.1.0"
 edition = "2021"
 
 [features]
-default = ["format", "errors", "hyperlink"]
+default = ["format", "errors", "hyperlink", "github_output"]
 errors = []
 format = []
 hyperlink = ["dep:url"] # maybe make a wrapping feature for terminal specific stuff
+github_output = []
 
 [dependencies]
 url = { version = "2.5.2", optional = true }
